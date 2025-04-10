@@ -5,9 +5,11 @@ def lengthOfLongestSubstring(x):
     s_list = []
     s_dict = {}
     for i in range(len(x)):
-        s_dict.update(x[i])
         if x[i] != x[i-1]:
+            s_list.append(x[i])
             output += 1
     print(output)
-    print(s_dict)
+    print(s_list)
+    print(s_list.count("a"))
 
+lengthOfLongestSubstring(s)
