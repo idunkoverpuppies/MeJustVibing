@@ -1,15 +1,18 @@
-s = "abcabcbb"
+s = "abcabcbbdddd"
 
 def lengthOfLongestSubstring(x):
+    s_seen = set()
     output = 0
-    s_list = []
-    s_dict = {}
+    prev = 0
     for i in range(len(x)):
-        if x[i] != x[i-1]:
-            s_list.append(x[i])
-            output += 1
+        while x[i] in s_seen:
+            s_seen.remove(x[prev])
+            prev += 1
+        s_seen.add(x[i])
+
+        if i - prev + 1 > output:
+            output = i - prev + 1
+
     print(output)
-    print(s_list)
-    print(s_list.count("a"))
 
 lengthOfLongestSubstring(s)
