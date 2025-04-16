@@ -18,42 +18,52 @@
 #
 # lengthOfLongestSubstring(s)
 
-def validate_user(name, email, password):
-    def validate_name(name):
-        if type(name) == "str" and len(name) > 2:
-            return True
-        else:
-            raise ValueError
+# def validate_user(name, email, password):
+#     def validate_name(name):
+#         if type(name) == "str" and len(name) > 2:
+#             return True
+#         else:
+#             raise ValueError
+#
+#     def validate_email(email):
+#         if type(email) != "str":
+#             raise ValueError
+#         elif len(email) <= 1:
+#             raise ValueError
+#         elif string.count('@') != 1:
+#             raise ValueError
+#         elif email[email.find("@"):] not in top_level_domains:
+#             raise ValueError
+#         else:
+#             return True
+#
+#     def validate_password(password):
+#         if len(password) > 8:
+#             raise ValueError
+#         elif sum(1 for i in password if i.isupper()) == 0:
+#             raise ValueError
+#         elif sum(1 for i in password if i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) == 0:
+#             raise ValueError
+#         else:
+#             return True
+#
+#
+# def register_user(name, email, password):
+#     dict = {}
+#     if validate_user() == ValueError:
+#         return False
+#     else:
+#         dict.update({"name": name, "email": email, "password": password})
+#         print(dict)
+#
+# validate_user('John', 'john@example.com', 'securePassword123')
 
-    def validate_email(email):
-        if type(email) != "str":
-            raise ValueError
-        elif len(email) <= 1:
-            raise ValueError
-        elif string.count('@') != 1:
-            raise ValueError
-        elif email[email.find("@"):] not in top_level_domains:
-            raise ValueError
-        else:
-            return True
 
-    def validate_password(password):
-        if len(password) > 8:
-            raise ValueError
-        elif sum(1 for i in password if i.isupper()) == 0:
-            raise ValueError
-        elif sum(1 for i in password if i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) == 0:
-            raise ValueError
-        else:
-            return True
+def longestPalindrome(s: str) -> str:
+    a = ""
+    for i in range(1, len(s)):
+        if s[i-2] == s[i]:
+            a = "".join(s[i])
+    print(a)
 
-
-def register_user(name, email, password):
-    dict = {}
-    if validate_user() == ValueError:
-        return False
-    else:
-        dict.update({"name": name, "email": email, "password": password})
-        print(dict)
-
-validate_user('Jo
+longestPalindrome("babbad")
