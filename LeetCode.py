@@ -59,11 +59,10 @@
 # validate_user('John', 'john@example.com', 'securePassword123')
 
 
-def longestPalindrome(s: str) -> str:
-    a = ""
-    for i in range(1, len(s)):
-        if s[i-2] == s[i]:
-            a = "".join(s[i])
-    print(a)
-
-longestPalindrome("babbad")
+def reverse(x: int) -> int:
+    sign = -1 if x < 0 else 1
+    x_abs = abs(x)
+    reversed_num = str(x)[::-1]
+    if int(reversed_num) < (-2**31) or int(reversed_num) > (2**31) - 1:
+        return 0
+    return sign * int(reversed_num)
