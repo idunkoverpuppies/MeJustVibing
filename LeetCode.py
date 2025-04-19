@@ -59,10 +59,51 @@
 # validate_user('John', 'john@example.com', 'securePassword123')
 
 
-def reverse(x: int) -> int:
-    sign = -1 if x < 0 else 1
-    x_abs = abs(x)
-    reversed_num = str(x)[::-1]
-    if int(reversed_num) < (-2**31) or int(reversed_num) > (2**31) - 1:
+# def reverse(x: int) -> int:
+#     sign = -1 if x < 0 else 1
+#     x_abs = abs(x)
+#     reversed_num = str(x)[::-1]
+#     if int(reversed_num) < (-2**31) or int(reversed_num) > (2**31) - 1:
+#         return 0
+#     return sign * int(reversed_num)
+
+def myAtoi(s: str) -> int:
+    if len(s) == 0:
         return 0
-    return sign * int(reversed_num)
+
+    cleaner_s = s.strip()
+    if len(cleaner_s) == 0:
+        return 0
+
+    a = []
+    sign = 1
+    index = 0
+
+    if cleaner_s[0] == '-':
+        sign = -1
+        index = 1
+
+    elif cleaner_s[0] == '+':
+        sign = +1
+        index = 1
+
+    for i in cleaner_s[index:]:
+        if not i.isdigit():
+            break
+
+        a.append(i)
+    if not a:
+        return 0
+
+    if sign * int("".join(a)) < (-2 ** 31):
+        print(-2 ** 31)
+
+    if sign * int("".join(a)) > (2 ** 31 - 1):
+        print(2 ** 31 - 1)
+
+    print(sign * int("".join(a)))
+
+
+
+
+
